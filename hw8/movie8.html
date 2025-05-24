@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Movie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3a0ca3;
+            --secondary-color: #f72585;
+            --background-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --light-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 18px 25px;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            font-weight: 600;
+            text-align: left;
+            width: 30%;
+            position: relative;
+        }
+        
+        tr:last-child th, tr:last-child td {
+            border-bottom: none;
+        }
+        
+        td {
+            background-color: var(--light-color);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        tr:hover td {
+            background-color: rgba(58, 12, 163, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-radius: 30px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+        }
+        
+        .description-cell {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Favorite Movie</h1>
+    </header>
+    
+    <div class="container">
+        <table>
+            <tr>
+                <th>Title</th>
+                <td>Inception</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>Christopher Nolan</td>
+            </tr>
+            <tr>
+                <th>Leading Actor</th>
+                <td>Leonardo DiCaprio</td>
+            </tr>
+            <tr>
+                <th>Leading Actress</th>
+                <td>Marion Cotillard</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>PG-13</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td class="description-cell">A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.</td>
+            </tr>
+            <tr>
+                <th>Review Link</th>
+                <td><a href="https://www.rogerebert.com/reviews/inception-2010" target="_blank">Roger Ebert's Review</a></td>
+            </tr>
+        </table>
+        
+        <div class="footer">
+            <p>Want to discuss more about great movies?</p>
+            <a href="20202104@std.neu.edu.tr">Contact Me</a>
+        </div>
+    </div>
+</body>
+</html> 

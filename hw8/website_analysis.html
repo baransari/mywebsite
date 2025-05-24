@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --positive-color: #4cc9f0;
+            --negative-color: #f72585;
+            --background-color: #f8f9fa;
+            --card-color: #ffffff;
+            --text-color: #2b2d42;
+            --light-text: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.05),
+                rgba(255, 255, 255, 0.05) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            animation: move 30s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes move {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .website-analysis {
+            background-color: var(--card-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin-bottom: 50px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .website-analysis:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .website-header {
+            padding: 25px;
+            color: var(--light-text);
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .appealing .website-header {
+            background: linear-gradient(135deg, var(--positive-color), var(--primary-color));
+        }
+        
+        .unappealing .website-header {
+            background: linear-gradient(135deg, var(--negative-color), var(--accent-color));
+        }
+        
+        .website-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .website-header h2 i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .website-content {
+            padding: 30px;
+        }
+        
+        .question-group {
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 20px;
+        }
+        
+        .question-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background-color: var(--secondary-color);
+        }
+        
+        .answer {
+            margin-left: 20px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        li::marker {
+            color: var(--primary-color);
+        }
+        
+        .url {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            border-radius: 5px;
+            margin-top: 5px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(67, 97, 238, 0.2);
+        }
+        
+        .unappealing .improvement-list li {
+            background-color: rgba(247, 37, 133, 0.05);
+            padding: 10px 15px;
+            border-left: 3px solid var(--negative-color);
+            border-radius: 0 5px 5px 0;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .website-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Website UX Analysis</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="website-analysis appealing">
+            <div class="website-header">
+                <h2><i class="fas fa-thumbs-up"></i>Appealing Website</h2>
+            </div>
+            
+            <div class="website-content">
+                <div class="question-group">
+                    <div class="question">What is the URL of the website?</div>
+                    <div class="answer">
+                        <span class="url">https://www.airbnb.com</span>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">Does this page use tables? If so, for what purpose?</div>
+                    <div class="answer">
+                        No, this website doesn't use traditional HTML tables for layout. Instead, it uses modern CSS Grid and Flexbox for organizing content.
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">Does this page use CSS? If so, for what purpose?</div>
+                    <div class="answer">
+                        Yes, this page uses extensive CSS for:
+                        <ul>
+                            <li>Responsive layout design that adapts to different screen sizes</li>
+                            <li>Consistent styling of text, buttons, and form elements</li>
+                            <li>Visual effects like shadows, transitions, and animations</li>
+                            <li>Complex grid layouts for displaying property listings</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">Is this page appealing or unappealing? List three reasons for your answer.</div>
+                    <div class="answer">
+                        This page is appealing because:
+                        <ul>
+                            <li>Clean, minimalist design with ample white space makes content easy to read and navigate</li>
+                            <li>High-quality images are prominently featured, creating visual interest and showcasing properties effectively</li>
+                            <li>Intuitive navigation with clear categorization helps users quickly find what they're looking for</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="website-analysis unappealing">
+            <div class="website-header">
+                <h2><i class="fas fa-thumbs-down"></i>Unappealing Website</h2>
+            </div>
+            
+            <div class="website-content">
+                <div class="question-group">
+                    <div class="question">What is the URL of the website?</div>
+                    <div class="answer">
+                        <span class="url">https://www.craigslist.org</span>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">Does this page use tables? If so, for what purpose?</div>
+                    <div class="answer">
+                        Yes, this website uses HTML tables for both layout and organizing listings. The main page structure and the categorization of classified ads are arranged in table format.
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">Does this page use CSS? If so, for what purpose?</div>
+                    <div class="answer">
+                        The website uses minimal CSS for:
+                        <ul>
+                            <li>Basic text styling (font size, color)</li>
+                            <li>Simple layout structure</li>
+                            <li>Link styling</li>
+                        </ul>
+                        However, the CSS implementation is very basic and lacks modern design practices.
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">Is this page appealing or unappealing? List three reasons for your answer.</div>
+                    <div class="answer">
+                        This page is unappealing because:
+                        <ul>
+                            <li>Outdated design with a dense, text-heavy layout makes information difficult to scan</li>
+                            <li>Lack of visual hierarchy - all links and text appear with similar prominence, making it challenging to identify important elements</li>
+                            <li>Minimal use of color, images, or modern design elements creates a utilitarian appearance that feels dated</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="question-group">
+                    <div class="question">If this page is unappealing, what would you do to improve it?</div>
+                    <div class="answer">
+                        To improve this website, I would:
+                        <ul class="improvement-list">
+                            <li>Implement a modern, responsive design that works well on all devices</li>
+                            <li>Add intuitive navigation with dropdown menus and search filters</li>
+                            <li>Introduce a clean visual hierarchy with proper spacing, typography, and color to differentiate sections</li>
+                            <li>Incorporate imagery where appropriate while maintaining fast loading times</li>
+                            <li>Modernize the listing view with cards or grid layouts that include thumbnails</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        Website Analysis Project - ECC006 Homework Assignment #8
+    </footer>
+</body>
+</html> 
